@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Outfit:wght@300..900&family=Fira+Code:wght@300..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Modern Fintech Dark/Light Palette - Defaulting to a rich dark theme for gaming feel */
+  --background: 224 71% 4%;
+  --foreground: 210 40% 98%;
+
+  --card: 224 71% 6%;
+  --card-foreground: 210 40% 98%;
+
+  --popover: 224 71% 6%;
+  --popover-foreground: 210 40% 98%;
+
+  --primary: 262 83% 58%; /* Vivid Purple */
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 217 19% 27%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 217 19% 27%;
+  --muted-foreground: 215 20% 65%;
+
+  --accent: 180 100% 35%; /* Teal for positive financial cues */
+  --accent-foreground: 210 40% 98%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 217 19% 27%;
+  --input: 217 19% 27%;
+  --ring: 262 83% 58%;
+
+  --radius: 0.75rem;
+
+  /* Custom Status Colors */
+  --success: 142 71% 45%;
+  --warning: 38 92% 50%;
+  --danger: 0 84% 60%;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary-foreground;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    @apply tracking-tight font-bold;
+  }
+
+  /* Custom scrollbar for webkit */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted rounded-full hover:bg-muted-foreground/50 transition-colors;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Glassmorphism utilities */
+  .glass {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  }
+  
+  .glass-card {
+    @apply bg-card/60 backdrop-blur-md border border-white/5 shadow-xl;
+  }
+
+  /* Text gradients */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-400 to-accent;
+  }
+  
+  .text-gradient-danger {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-500;
+  }
+}
+
+/* Recharts Customization */
+.recharts-tooltip-cursor {
+  fill: rgba(255, 255, 255, 0.05);
+}
